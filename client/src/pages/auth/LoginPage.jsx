@@ -44,7 +44,7 @@ const LoginPage = () => {
         newErrors.password = "Password must be atleast 8 characters long";
       }
 
-      setErrors(newErrors0);
+      setErrors(newErrors);
       return Object.keys(newErrors).length === 0;
        
     }
