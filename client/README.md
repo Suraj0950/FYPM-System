@@ -1,39 +1,41 @@
-# FYPM-System (Final Year Project Management System)
+# 🎓 FYPM-System (Final Year Project Management System)
 
-A full-stack web application designed to manage Final Year Projects in colleges.
-The system allows **students, teachers, and admins** to collaborate, submit projects, review progress, and manage academic project workflows efficiently.
+FYPM-System is a **full-stack MERN application** designed to simplify the management of **Final Year Projects in colleges and universities**.
+It allows **students, teachers, and administrators** to collaborate efficiently for project submission, review, and evaluation.
+
+The system helps institutions manage project workflows digitally instead of using manual processes.
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
 ### 👨‍🎓 Student
 
 * Register and login securely
 * Submit final year project proposals
 * Upload project documents
-* Track project status and feedback
-* View assigned supervisor
+* Track project approval status
+* Receive feedback from teachers
 
 ### 👨‍🏫 Teacher
 
 * Review submitted projects
 * Approve or reject project proposals
 * Provide feedback to students
-* Monitor student progress
+* Monitor student project progress
 
 ### 👨‍💼 Admin
 
 * Manage students and teachers
-* Assign supervisors to projects
-* Monitor overall project statistics
-* Manage system users
+* Assign supervisors
+* Manage all project submissions
+* View system statistics
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
-**Frontend**
+### Frontend
 
 * React.js
 * Redux Toolkit
@@ -42,48 +44,149 @@ The system allows **students, teachers, and admins** to collaborate, submit proj
 * Axios
 * Recharts
 
-**Backend**
+### Backend
 
 * Node.js
 * Express.js
 
-**Database**
+### Database
 
 * MongoDB
 * Mongoose
 
-**Authentication**
+### Authentication
 
 * JWT (JSON Web Token)
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Folder Structure
 
 ```
 FYPM-System
 │
-├── client                 # Frontend (React)
-│   ├── src
-│   │   ├── components
-│   │   ├── pages
-│   │   ├── redux
-│   │   ├── services
-│   │   └── App.jsx
+├── client/                         # React Frontend
 │
-├── server                 # Backend (Node + Express)
-│   ├── controllers
-│   ├── models
-│   ├── routes
-│   ├── middleware
-│   └── server.js
+│   ├── public/
+│   │   └── favicon.ico
 │
-└── README.md
+│   ├── src/
+│   │
+│   │   ├── assets/                 # Images, icons, logos
+│   │   │   ├── images
+│   │   │   └── icons
+│   │
+│   │   ├── components/             # Reusable UI components
+│   │   │   ├── common/
+│   │   │   │   ├── Navbar.jsx
+│   │   │   │   ├── Sidebar.jsx
+│   │   │   │   └── Loader.jsx
+│   │   │   │
+│   │   │   ├── ui/
+│   │   │   │   ├── Button.jsx
+│   │   │   │   ├── Input.jsx
+│   │   │   │   └── Modal.jsx
+│   │   │   │
+│   │   │   └── charts/
+│   │   │       └── StatsChart.jsx
+│   │
+│   │   ├── pages/
+│   │   │   ├── auth/
+│   │   │   │   ├── LoginPage.jsx
+│   │   │   │   └── RegisterPage.jsx
+│   │   │   │
+│   │   │   ├── student/
+│   │   │   │   ├── StudentDashboard.jsx
+│   │   │   │   ├── SubmitProject.jsx
+│   │   │   │   └── MyProjects.jsx
+│   │   │   │
+│   │   │   ├── teacher/
+│   │   │   │   ├── TeacherDashboard.jsx
+│   │   │   │   ├── ReviewProjects.jsx
+│   │   │   │   └── Feedback.jsx
+│   │   │   │
+│   │   │   ├── admin/
+│   │   │   │   ├── AdminDashboard.jsx
+│   │   │   │   ├── ManageUsers.jsx
+│   │   │   │   └── ManageProjects.jsx
+│   │   │   │
+│   │   │   └── NotFound.jsx
+│   │
+│   │   ├── redux/
+│   │   │   ├── store.js
+│   │   │   └── slices/
+│   │   │       ├── authSlice.js
+│   │   │       ├── projectSlice.js
+│   │   │       └── adminSlice.js
+│   │
+│   │   ├── services/
+│   │   │   ├── axios.js
+│   │   │   ├── authService.js
+│   │   │   └── projectService.js
+│   │
+│   │   ├── hooks/
+│   │   │   └── useAuth.js
+│   │
+│   │   ├── utils/
+│   │   │   ├── formatDate.js
+│   │   │   └── constants.js
+│   │
+│   │   ├── routes/
+│   │   │   └── ProtectedRoute.jsx
+│   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│
+│   ├── package.json
+│   └── vite.config.js
+│
+│
+├── server/                         # Backend (Node + Express)
+│
+│   ├── config/
+│   │   ├── db.js
+│   │   └── cloudinary.js
+│
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── userController.js
+│   │   └── projectController.js
+│
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   ├── errorMiddleware.js
+│   │   └── roleMiddleware.js
+│
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Project.js
+│   │   └── Feedback.js
+│
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── userRoutes.js
+│   │   └── projectRoutes.js
+│
+│   ├── utils/
+│   │   ├── generateToken.js
+│   │   └── sendEmail.js
+│
+│   ├── uploads/
+│   │   └── projects
+│
+│   ├── server.js
+│   └── package.json
+│
+│
+├── .gitignore
+├── README.md
+└── package.json
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
 ### 1️⃣ Clone the repository
 
@@ -144,7 +247,7 @@ npm run dev
 
 ---
 
-## 🌐 Application URLs
+# 🌐 Application URLs
 
 Frontend
 
@@ -160,17 +263,17 @@ http://localhost:4000
 
 ---
 
-## 📊 Future Improvements
+# 📈 Future Improvements
 
 * Email notifications
 * Project evaluation system
-* File version management
-* Chat system between students and supervisors
-* AI-based project recommendation
+* Real-time chat between students and supervisors
+* File version tracking
+* AI-based project recommendations
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Suraj Kumar**
 
@@ -179,6 +282,6 @@ https://github.com/Suraj0950
 
 ---
 
-## ⭐ Support
+# ⭐ Support
 
-If you like this project, please ⭐ the repository on GitHub.
+If you like this project, please **⭐ star the repository** on GitHub.
