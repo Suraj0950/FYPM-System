@@ -1,1 +1,287 @@
+# 🎓 FYPM-System (Final Year Project Management System)
 
+FYPM-System is a **full-stack MERN application** designed to simplify the management of **Final Year Projects in colleges and universities**.
+It allows **students, teachers, and administrators** to collaborate efficiently for project submission, review, and evaluation.
+
+The system helps institutions manage project workflows digitally instead of using manual processes.
+
+---
+
+# 🚀 Features
+
+### 👨‍🎓 Student
+
+* Register and login securely
+* Submit final year project proposals
+* Upload project documents
+* Track project approval status
+* Receive feedback from teachers
+
+### 👨‍🏫 Teacher
+
+* Review submitted projects
+* Approve or reject project proposals
+* Provide feedback to students
+* Monitor student project progress
+
+### 👨‍💼 Admin
+
+* Manage students and teachers
+* Assign supervisors
+* Manage all project submissions
+* View system statistics
+
+---
+
+# 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* Redux Toolkit
+* React Router DOM
+* Tailwind CSS
+* Axios
+* Recharts
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+* Mongoose
+
+### Authentication
+
+* JWT (JSON Web Token)
+
+---
+
+# 📂 Project Folder Structure
+
+```
+FYPM-System
+│
+├── client/                         # React Frontend
+│
+│   ├── public/
+│   │   └── favicon.ico
+│
+│   ├── src/
+│   │
+│   │   ├── assets/                 # Images, icons, logos
+│   │   │   ├── images
+│   │   │   └── icons
+│   │
+│   │   ├── components/             # Reusable UI components
+│   │   │   ├── common/
+│   │   │   │   ├── Navbar.jsx
+│   │   │   │   ├── Sidebar.jsx
+│   │   │   │   └── Loader.jsx
+│   │   │   │
+│   │   │   ├── ui/
+│   │   │   │   ├── Button.jsx
+│   │   │   │   ├── Input.jsx
+│   │   │   │   └── Modal.jsx
+│   │   │   │
+│   │   │   └── charts/
+│   │   │       └── StatsChart.jsx
+│   │
+│   │   ├── pages/
+│   │   │   ├── auth/
+│   │   │   │   ├── LoginPage.jsx
+│   │   │   │   └── RegisterPage.jsx
+│   │   │   │
+│   │   │   ├── student/
+│   │   │   │   ├── StudentDashboard.jsx
+│   │   │   │   ├── SubmitProject.jsx
+│   │   │   │   └── MyProjects.jsx
+│   │   │   │
+│   │   │   ├── teacher/
+│   │   │   │   ├── TeacherDashboard.jsx
+│   │   │   │   ├── ReviewProjects.jsx
+│   │   │   │   └── Feedback.jsx
+│   │   │   │
+│   │   │   ├── admin/
+│   │   │   │   ├── AdminDashboard.jsx
+│   │   │   │   ├── ManageUsers.jsx
+│   │   │   │   └── ManageProjects.jsx
+│   │   │   │
+│   │   │   └── NotFound.jsx
+│   │
+│   │   ├── redux/
+│   │   │   ├── store.js
+│   │   │   └── slices/
+│   │   │       ├── authSlice.js
+│   │   │       ├── projectSlice.js
+│   │   │       └── adminSlice.js
+│   │
+│   │   ├── services/
+│   │   │   ├── axios.js
+│   │   │   ├── authService.js
+│   │   │   └── projectService.js
+│   │
+│   │   ├── hooks/
+│   │   │   └── useAuth.js
+│   │
+│   │   ├── utils/
+│   │   │   ├── formatDate.js
+│   │   │   └── constants.js
+│   │
+│   │   ├── routes/
+│   │   │   └── ProtectedRoute.jsx
+│   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│
+│   ├── package.json
+│   └── vite.config.js
+│
+│
+├── server/                         # Backend (Node + Express)
+│
+│   ├── config/
+│   │   ├── db.js
+│   │   └── cloudinary.js
+│
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── userController.js
+│   │   └── projectController.js
+│
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   ├── errorMiddleware.js
+│   │   └── roleMiddleware.js
+│
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Project.js
+│   │   └── Feedback.js
+│
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── userRoutes.js
+│   │   └── projectRoutes.js
+│
+│   ├── utils/
+│   │   ├── generateToken.js
+│   │   └── sendEmail.js
+│
+│   ├── uploads/
+│   │   └── projects
+│
+│   ├── server.js
+│   └── package.json
+│
+│
+├── .gitignore
+├── README.md
+└── package.json
+```
+
+---
+
+# ⚙️ Installation
+
+### 1️⃣ Clone the repository
+
+```
+git clone https://github.com/Suraj0950/FYPM-System.git
+```
+
+```
+cd FYPM-System
+```
+
+---
+
+### 2️⃣ Install dependencies
+
+Backend
+
+```
+cd server
+npm install
+```
+
+Frontend
+
+```
+cd client
+npm install
+```
+
+---
+
+### 3️⃣ Setup Environment Variables
+
+Create a `.env` file inside **server**
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
+CLIENT_URL=http://localhost:5173
+```
+
+---
+
+### 4️⃣ Run the application
+
+Backend
+
+```
+npm run dev
+```
+
+Frontend
+
+```
+npm run dev
+```
+
+---
+
+# 🌐 Application URLs
+
+Frontend
+
+```
+http://localhost:5173
+```
+
+Backend API
+
+```
+http://localhost:4000
+```
+
+---
+
+# 📈 Future Improvements
+
+* Email notifications
+* Project evaluation system
+* Real-time chat between students and supervisors
+* File version tracking
+* AI-based project recommendations
+
+---
+
+# 👨‍💻 Author
+
+**Suraj Kumar**
+
+GitHub:
+https://github.com/Suraj0950
+
+---
+
+# ⭐ Support
+
+If you like this project, please **⭐ star the repository** on GitHub.
