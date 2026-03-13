@@ -101,7 +101,7 @@ const LoginPage = () => {
           </div>
 
           {/* Login Form */}
-          <div className="card">
+          <div className="card"> 
             <form
               onSubmit={handleSubmit}
               className="space-y-6"
@@ -185,9 +185,6 @@ const LoginPage = () => {
                   ) : "SignIn"
                 }
               </button>
-
-              
-
             </form>
           </div>
 
