@@ -124,7 +124,7 @@ const ForgotPasswordPage = () => {
             </p>
           </div>
 
-          {/* Login Form */}
+          {/* Forgot Password Form */}
           <div className="card"> 
             <form
               onSubmit={handleSubmit}
@@ -155,7 +155,7 @@ const ForgotPasswordPage = () => {
                 />
                 {
                   error && (
-                    <p className="text-sm text-red-500 mt-">{error}</p>
+                    <p className="text-sm text-red-500 mt-2">{error}</p>
                   )
                 }
               </div>
