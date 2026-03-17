@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { KeyRound, Loader } from "lucide-react";
+import { resetPassword } from "../../store/slices/authSlice";
 
 const ResetPasswordPage = () => {
   const [formData, setFormData] = useState({

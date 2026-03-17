@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { KeyRound, Loader } from 'lucide-react';
+import { forgotPassword } from "../../store/slices/authSlice";
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState("");
@@ -27,7 +28,7 @@ const ForgotPasswordPage = () => {
     setError("");
 
     try {
-      // await dispatch(forgotPassword({ email })).unwrap();
+      await dispatch(forgotPassword({ email })).unwrap();
       setIsSubmitted(true);
     } catch (error) {
       setError(error || "Failed to send reset link. Please try again later!")
