@@ -4,7 +4,9 @@ import { toast } from "react-toastify";
 
 export const login = createAsyncThunk("login", async (data, thunkAPI) => {
   try {
-    const res = await axiosInstance.post("/auth/login", data);
+    const res = await axiosInstance.post("/auth/login", data, {
+      headers: {"Content-Type": "application/json"},
+    });
     toast.success(res.data.message);
     return res.data.user;
   } catch (error) {

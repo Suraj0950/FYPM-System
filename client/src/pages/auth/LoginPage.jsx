@@ -68,22 +68,18 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    if (authUser) {
-      switch (formData.role) {
-        case "Student":
-          navigate("/student");
-          break;
-        case "Teacher":
-          navigate("/teacher");
-          break;
-        case "Admin":
-          navigate("/admin");
-          break;
-        default:
-          navigate("/login")
-      }
-    }
-  }, [authUser, formData.role, navigate]);
+    if (!authUser) {
+      return;
+    }  
+    const roleRoutes = {
+      Student: "/student",
+      Teacher: "/teacher",
+      Admin: "/admin",
+    };
+  
+    navigate(roleRoutes[authUser.role] || "/login");
+  
+  }, [authUser, navigate]);
 
   return (
     <>

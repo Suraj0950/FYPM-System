@@ -1,8 +1,6 @@
 
-
-const generateToken  = (user, statusCode, res, message) => {
+const generateToken = (user, statusCode, res, message) => {
     const token = user.generateToken();
-    
     res
     .status(statusCode)
     .cookie("token", token, {
@@ -16,7 +14,8 @@ const generateToken  = (user, statusCode, res, message) => {
     .json({
         success: true,
         message: message,
-        token: token
+        token: token,
+        user,
     });
 };
 
