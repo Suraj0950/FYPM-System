@@ -1,5 +1,13 @@
 import express from 'express';
-import { createStudent, deleteStudent, updateStudent } from '../controllers/adminController.js';
+import {
+    createStudent,
+    createTeacher,
+    deleteStudent,
+    deleteTeacher,
+    getAllUsers,
+    updateStudent,
+    updateTeacher
+} from '../controllers/adminController.js';
 import {isAuthenticated, isAuthorized} from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
@@ -23,6 +31,35 @@ router.delete(
     isAuthenticated,
     isAuthorized("Admin"),
     deleteStudent
+);
+
+router.post(
+    "/create-teacher",
+    isAuthenticated,
+    isAuthorized("Admin"),
+    createTeacher
+);
+
+router.put(
+    "/update-teacher/:id",
+    isAuthenticated,
+    isAuthorized("Admin"),
+    updateTeacher
+);
+
+router.delete(
+    "/delete-teacher/:id",
+    isAuthenticated,
+    isAuthorized("Admin"),
+    deleteTeacher
+);
+
+router.get(
+    "/users",
+    isAuthenticated,
+    isAuthorized("Admin"),
+    getAllUsers
+
 );
 
 export default router;
