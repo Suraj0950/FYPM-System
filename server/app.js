@@ -4,6 +4,8 @@ import { config } from 'dotenv';
 import cookieParser from 'cookie-parser';
 import { errorMiddleware } from './middlewares/error.js';
 import authRouter from './router/userRoute.js';
+import adminRouter from './router/adminRoute.js';
+
 config();
 
 const app = express();
@@ -22,7 +24,9 @@ app.use(express.urlencoded({
 }));
 
 // Importing all routes here
-app.use("/api/v1/auth", authRouter)
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/admin", adminRouter);
+
 
 
 // Error middleware must be LAST
