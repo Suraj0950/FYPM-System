@@ -75,9 +75,7 @@ export const createTeacher = asyncHandler(async (req, res, next) => {
             : [],
         role: "Teacher",
     });
-
-    // [ "Software Engineer", "Web Developer", "Network Specialist" ]
-
+    
     res.status(201).json({
         success: true,
         message: "Student created Successfully",
