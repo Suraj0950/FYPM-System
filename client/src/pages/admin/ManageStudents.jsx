@@ -19,7 +19,10 @@ const ManageStudents = () => {
   });
 
   const dispatch = useDispatch();
-  
+
+  const student = useMemo({
+    
+  });
 
   return ({
     
