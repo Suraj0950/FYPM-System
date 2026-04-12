@@ -20,9 +20,22 @@ const ManageStudents = () => {
 
   const dispatch = useDispatch();
 
-  const student = useMemo({
-    
-  });
+  const students = useMemo(() => {
+    const studentsUsers = (users || []).filter(u => u.role?.toLowerCae() === "student");
+
+    return studentsUsers.map((student) => {
+      const studentProject = (projects || []).find(
+        (p) => p.student?._id === student._id
+      );
+      return {
+        ...student,
+        projectTitle: studentProject?.title || null,
+        supervisor: studentProject?.supervisor || null,
+        // yhan ek chiz aur likhna hai
+      };
+    });
+
+  },[users, projects]);
 
   return ({
     
