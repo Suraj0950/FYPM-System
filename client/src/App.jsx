@@ -46,7 +46,7 @@ const App = () => {
     dispatch(getUser());
   }, [dispatch]);
 
-  const protectedRoute = ({ children, allowedRoles }) => { 
+  const ProtectedRoute = ({ children, allowedRoles }) => { 
     if (!authUser) {
       return <Navigate to = "/login" replace />
     }
@@ -89,9 +89,9 @@ const App = () => {
         <Route
           path="/admin"
           element={
-            <protectedRoute allowedRoles = {["Admin"]}>
-              <DashboardLayout/>
-            </protectedRoute>
+            <ProtectedRoute allowedRoles = {["Admin"]}>
+              <DashboardLayout userRole={"Admin"}/>
+            </ProtectedRoute>
           }
         >
           <Route index element={<AdminDashboard />} /> 

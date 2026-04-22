@@ -113,7 +113,7 @@ const LoginPage = () => {
               {/* Role Selection  */}
               <div>
                 <label className="label">Select Role</label>
-                <select className="input" name="role" value={formData.role} onChange={handleChange}>
+                <select className="select" name="role" value={formData.role} onChange={handleChange}>
                   <option value="Student">Student</option>
                   <option value="Teacher">Teacher</option>
                   <option value="Admin">Admin</option>

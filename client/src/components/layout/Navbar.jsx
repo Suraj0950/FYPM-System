@@ -81,7 +81,7 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
                   </svg>
                 </div>
                 <div className="ml-3 hidden sm:block">
-                  <h1 className="text-lg font-semibold text-slate-800">
+                  <h1 className="text-lg font-mono text-slate-800">
                     Final Year Project Management System
                   </h1>
                 </div>
@@ -127,7 +127,7 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
 
               {/* Profile dropdown menu */}
               {profileDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 z-50">
+                <div className="absolute right-0 mt-4 w-48 bg-white rounded-lg shadow-lg border border-slate-200 z-50">
                   <div className="p-2">
                     <div className="px-3 py-2 border-b border-slate-200">
                       <p className="text-sm font-medium text-slate-800">
