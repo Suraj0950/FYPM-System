@@ -192,6 +192,7 @@ const ManageStudents = () => {
               </label>
               <input
                 type="text"
+                className="w-full outline-none"
                 placeholder="Search by Name or Email"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -205,7 +206,11 @@ const ManageStudents = () => {
                 value={filterDepartment}
                 onChange={(e) => setFilterDepartment(e.target.value)}
               >
-                <option value={all}> All Departments </option>
+                <option
+                  value={all}
+                >
+                  All Departments
+                </option>
                 {
                   departments.map(dept => (
                     <option
@@ -219,6 +224,41 @@ const ManageStudents = () => {
               </select>
             </div>
             
+          </div>
+        </div>
+
+        {/* STUDENTS TABLE */}
+        <div className="card">
+          <div className="card-header">
+            <h2 className="card-title"> Students List </h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  >
+                    Student Info
+                  </th>
+                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  >
+                    Department & Year
+                  </th>
+                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  >
+                    Supervisor
+                  </th>
+                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  >
+                    Project Title
+                  </th>
+                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  >
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+            </table>
           </div>
         </div>
 
