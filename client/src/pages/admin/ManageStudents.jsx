@@ -192,7 +192,7 @@ const ManageStudents = () => {
               </label>
               <input
                 type="text"
-                className="w-full outline-none"
+                className="w-full outline-none border-2 pl-2 py-1 rounded"
                 placeholder="Search by Name or Email"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -202,7 +202,7 @@ const ManageStudents = () => {
             <div className="w-full md:w-48">
               <label className="block text-sm font-medium text-slate-700 mb-2"> Filter Search </label>
               <select
-                className="input-field w-full"
+                className="input-field w-full outline-none border-2 pl-1 py-1 rounded"
                 value={filterDepartment}
                 onChange={(e) => setFilterDepartment(e.target.value)}
               >
@@ -236,23 +236,23 @@ const ManageStudents = () => {
             <table className="w-full">
               <thead className="bg-slate-50">
                 <tr>
-                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  <th className="px-6 py-6 text-left text-xs font-medium text-black uppercase tracking-wide"
                   >
                     Student Info
                   </th>
-                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  <th className="px-6 py-6 text-left text-xs font-medium text-black uppercase tracking-wide"
                   >
                     Department & Year
                   </th>
-                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  <th className="px-6 py-6 text-left text-xs font-medium text-black uppercase tracking-wide"
                   >
                     Supervisor
                   </th>
-                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  <th className="px-6 py-6 text-left text-xs font-medium text-black uppercase tracking-wide"
                   >
                     Project Title
                   </th>
-                  <th className="px-6 py-6 text-left text-xs font-medium text-slate-50 uppercase tracking-wide"
+                  <th className="px-6 py-6 text-left text-xs font-medium text-black uppercase tracking-wide"
                   >
                     Actions
                   </th>
