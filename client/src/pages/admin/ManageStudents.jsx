@@ -9,6 +9,7 @@ import {
 } from "../../store/slices/adminSlice";
 import { Check, CheckCircle, Plus, TriangleAlert, Users } from "lucide-react"; 
 import { toggleStudentModal } from '../../store/slices/popupSlice'
+import { all } from "axios";
 
 
 const ManageStudents = () => {
@@ -16,7 +17,7 @@ const ManageStudents = () => {
   const { isCreateStudentModalOpen } = useSelector(state => state.popup);
   const [ showModal, setShowModal ] = useState( false);
   const [ editingStudent, setEditingStudent] = useState( null);
-  const [ serchTerm, setSearchTerm ] = useState("");
+  const [ searchTerm, setSearchTerm ] = useState("");
   const [ filterDepartment, setFilterDepartment ] = useState("all");
   const [ showDeleteModal, setShowDeleteModal ] = useState(false);
   const [ studentToDelete, setStudentToDelete ] = useState(null);
@@ -48,8 +49,6 @@ const ManageStudents = () => {
       }
     });
   },[users, projects]);
-
-
 
   const departments = useMemo(() => { 
     const set = new Set((students || []).map((s) => s.department).filter(Boolean));   
@@ -121,7 +120,8 @@ const ManageStudents = () => {
   return (
     <> 
       <div className="space-y-6">
-        {/* Header */}
+
+        {/* HEADER */}
         <div className="card">
           <div className="card-header flex flex-col md:flex-row justify-between
            items-start md:items-center">
@@ -132,12 +132,13 @@ const ManageStudents = () => {
             <button onClick={()=> dispatch(toggleStudentModal())}
               className="btn-primary flex items-center space-x-2 mt-4 md:mt-0 cursor-pointer">
               <Plus className=" w-5 h-5" />
-              <spam> Add New Student </spam>
+              <span> Add New Student </span>
             </button>
 
            </div>
         </div> 
-        {/* Stats and cards */}
+
+        {/* STATS CARDS */}
         <div className="grid grid-cols md:grid-cols-3 gap-6">
           <div className="card">
             <div className="flex items-center">
@@ -177,9 +178,50 @@ const ManageStudents = () => {
                 </p>
               </div>
             </div>
-          </div>
-
+          </div>  
         </div>
+
+        {/* FILTERS */}
+        <div className="card">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex-1">
+              <label
+                className="block text-sm font-medium test-slate-700 mb-2"
+              >
+                Search Students
+              </label>
+              <input
+                type="text"
+                placeholder="Search by Name or Email"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+
+            <div className="w-full md:w-48">
+              <label className="block text-sm font-medium text-slate-700 mb-2"> Filter Search </label>
+              <select
+                className="input-field w-full"
+                value={filterDepartment}
+                onChange={(e) => setFilterDepartment(e.target.value)}
+              >
+                <option value={all}> All Departments </option>
+                {
+                  departments.map(dept => (
+                    <option
+                      value={dept}
+                      key={dept}
+                    >
+                      {dept}
+                    </option>
+                  ))
+                }
+              </select>
+            </div>
+            
+          </div>
+        </div>
+
       </div>
     </>
   );

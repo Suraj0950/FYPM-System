@@ -82,7 +82,7 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
                 </div>
                 <div className="ml-3 hidden sm:block">
                   <h1 className="text-lg font-mono text-slate-800">
-                    Final Year Project Management System
+                    FYPM-System
                   </h1>
                 </div>
               </div>
