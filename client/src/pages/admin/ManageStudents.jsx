@@ -35,7 +35,7 @@ const ManageStudents = () => {
   }, []);
 
   const students = useMemo(() => {
-    const studentsUsers = (users || []).filter(u => u.role?.toLowerCae() === "student");
+    const studentsUsers = (users || []).filter(u => u.role?.toLowerCase() === "student");
 
     return studentsUsers.map((student) => {
       const studentProject = (projects || []).find(
@@ -57,8 +57,8 @@ const ManageStudents = () => {
 
   const filterStudents = students.filter(student => {
     const matchesSearch =
-      (student.name || "").toLowerCase().includes(serchTerm.toLowerCase()) ||
-      (student.email || "").toLowerCase().includes(serchTerm.toLowerCase());
+      (student.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (student.email || "").toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesFilter =
       filterDepartment === "all" || student.department === filterDepartment;
@@ -236,7 +236,7 @@ const ManageStudents = () => {
             <table className="w-full">
               <thead className="bg-slate-50">
                 <tr>
-                  <th className="px-6 py-6 text-left text-xs font-medium text-black uppercase tracking-wide"
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wide"
                   >
                     Student Info
                   </th>
@@ -258,6 +258,56 @@ const ManageStudents = () => {
                   </th>
                 </tr>
               </thead>
+
+              <tbody className="bg-white divide-y divide-slate-200">
+                {
+                  filterStudents.map(student => {
+                    return (
+                      <tr key={student._id} className="hover:bg-slate-50">
+                        <td className="px-6 py-4">
+                          <div>
+                            <div className="text-sm font-medium text-slate-900">
+                              {student.name}
+                            </div>
+                            <div className="text-sm font-medium text-slate-900">
+                              {student.email}
+                            </div>
+                            { student.studentId && (
+                              <div className="text-xs text-slate-400">
+                                ID: {student.studentId}
+                              </div>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className=" text-sm text-slate-900">
+                            {student.department || "--"}
+                          </div>
+                          <div className="text-sm text-slate-500">
+                            {
+                              student.createdAt ? new Date(student.createdAt).getFullYear() : "--"
+                            }
+                          </div>
+                        </td>
+
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className=" text-sm text-slate-900">
+                            {student.department || "--"}
+                          </div>
+                          <div className="text-sm text-slate-500">
+                            {
+                              student.createdAt ? new Date(student.createdAt).getFullYear() : "--"
+                            }
+                          </div>
+                        </td>
+
+
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+
             </table>
           </div>
         </div>
